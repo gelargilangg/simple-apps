@@ -2,5 +2,5 @@ projectKey=node-simple-apps
 serverUrl=http://172.23.14.103:9000
 serverVersion=9.9.1.69595
 dashboardUrl=http://172.23.14.103:9000/dashboard?id=node-simple-apps
-ceTaskId=AZegIy8VHtMBbYxl18K_
-ceTaskUrl=http://172.23.14.103:9000/api/ce/task?id=AZegIy8VHtMBbYxl18K_
+ceTaskId=AZegL6hsHtMBbYxl18LB
+ceTaskUrl=http://172.23.14.103:9000/api/ce/task?id=AZegL6hsHtMBbYxl18LB

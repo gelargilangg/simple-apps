@@ -22,15 +22,15 @@ app.get('/app2', (req, res) => {
   res.send('Hello this App 2!')
 });
 
-app.get('/users', (req, res, next) => {
-  const sql = "SELECT * FROM tb_data ORDER BY id desc"
-  connection.query(sql, (error, fields) => {
-    //    if (error) {
-    //    console.log('error', error)
-    //} else {
-    res.send(fields)
-    //}
-  })
+app.get('/users', (req, res) => {
+  const sql = "SELECT * FROM tb_data ORDER BY id DESC";
+  connection.query(sql, (error, results) => {
+    if (error) {
+      console.error("Query error:", error);
+      return res.status(500).json({ message: "Error retrieving users" });
+    }
+    res.json(results);
+  });
 });
 
 app.listen(process.env.APP_PORT, () => {

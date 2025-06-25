@@ -6,3 +6,4 @@ testing/
 package=lock.json
 sonar-project.properties
 README.md
+.env

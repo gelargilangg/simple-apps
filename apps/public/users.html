@@ -9,8 +9,23 @@
     th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
     th { background-color: #f0f0f0; }
   </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+     <!-- Navbar -->
+  <nav class="bg-gray-950 bg-opacity-90 shadow-lg">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <div class="text-xl font-bold text-white">Simple APP</div>
+        <div class="space-x-4">
+          <a href="/" class="text-gray-300 hover:text-white">Home</a>
+          <a href="/app1" class="text-gray-300 hover:text-white">App 1</a>
+          <a href="/app2" class="text-gray-300 hover:text-white">App 2</a>
+          <a href="/users.html" class="text-gray-300 hover:text-white">Users</a>
+        </div>
+      </div>
+    </div>
+  </nav>
   <h2>Daftar Users dari MySQL</h2>
   <table id="userTable">
     <thead>

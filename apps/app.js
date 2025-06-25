@@ -4,10 +4,6 @@ const app = express()
 const path = require('path')
 require('dotenv').config();
 
-
-app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
-
 app.disable("x-powered-by");
 
 // Import Middleware
@@ -27,15 +23,14 @@ app.get('/app2', (req, res) => {
 });
 
 app.get('/users', (req, res, next) => {
-  const sql = "SELECT * FROM tb_data ORDER BY id DESC";
+  const sql = "SELECT * FROM tb_data ORDER BY id desc"
   connection.query(sql, (error, fields) => {
-    if (error) {
-      return next(error);
-    }
-
-    // Tampilkan di view EJS
-    res.render('users', { users: fields });
-  });
+    //    if (error) {
+    //    console.log('error', error)
+    //} else {
+    res.send(fields)
+    //}
+  })
 });
 
 app.listen(process.env.APP_PORT, () => {

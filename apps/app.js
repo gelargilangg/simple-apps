@@ -4,8 +4,6 @@ const app = express()
 const path = require('path')
 require('dotenv').config();
 
-app.disable("x-powered-by");
-
 // Import Middleware
 const logger = require('./middleware/logger')
 app.use(logger)
@@ -15,22 +13,22 @@ const connection = require('./middleware/db_connect');
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.get('/app1', (req, res) => {
-  res.redirect('/app1.html');
+  res.send('Hello this Apps 1!')
 });
 
 app.get('/app2', (req, res) => {
-  res.redirect('/app2.html');
+  res.send('Hello this App 2!')
 });
 
-app.get('/users', (req, res) => {
-  const sql = "SELECT * FROM tb_data ORDER BY id DESC";
-  connection.query(sql, (error, results) => {
+app.get('/users', (req, res, next) => {
+  const sql = "SELECT * FROM tb_data ORDER BY id desc"
+  connection.query(sql,(error, fields) => {
     if (error) {
-      console.error("Query error:", error);
-      return res.status(500).json({ message: "Error retrieving users" });
+      console.log('error', error)
+    } else {
+      res.send(fields)
     }
-    res.json(results);
-  });
+  })
 });
 
 app.listen(process.env.APP_PORT, () => {
